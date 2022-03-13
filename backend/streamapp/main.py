@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Response
 from camera import VideoCamera
 import json
-
+from collections import Counter
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
 import json 
@@ -84,6 +84,7 @@ def video_feed():
 def res():
     with open('sav.json') as json_file:
             data = json.load(json_file)
+            data["emo"]=dict(Counter(data["emo"]))
             return data
 @app.route("/<inp>", methods = ["GET"])
 @cross_origin()
