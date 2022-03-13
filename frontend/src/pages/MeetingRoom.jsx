@@ -10,6 +10,7 @@ import logout from "../assets/img/logout.png";
 import helmet from "../assets/img/helmet.png";
 import stopwatch from "../assets/img/stopwatch.png";
 import gintoki from "../assets/img/gintoki.png";
+import closeWhite from "../assets/img/closeWhite.png";
 
 // MEETING CONTROL IMAGES
 import mic from "../assets/img/meeting-controls/mic.png";
@@ -27,6 +28,7 @@ class MeetingRoom extends Component {
     super(props);
     this.state = {
       cameraModal: false,
+      chatWindow: false,
       studentList: [
         { firstName: "Anakin", lastName: "Skywalker" },
         { firstName: "Obi Wan", lastName: "Kenobi" },
@@ -64,17 +66,6 @@ class MeetingRoom extends Component {
               <img src={gintoki} alt="" />
             </ModalBody>
           </Modal>
-          {/* <div className="camera-overlay" id="camera-overlay">
-          <div className="camera-window card">
-            <div className="top">
-              <h3>Camera</h3>
-              <button className="close" id="close-camera">
-                <img src="img/close.png" alt="" />
-              </button>
-            </div>
-            <img src="img/gintoki.png" alt="" />
-          </div>
-        </div> */}
           <div className="left">
             <div className="side-bar">
               <div>
@@ -91,6 +82,33 @@ class MeetingRoom extends Component {
           </div>
 
           <div className="right">
+            <div className={this.state.chatWindow ? "chat-window open" : "chat-window"}>
+              <div className="title-bar">
+                <p>AI ChatBot</p>
+                <img
+                  src={closeWhite}
+                  alt=""
+                  onClick={() => {
+                    this.setState({ chatWindow: false });
+                  }}
+                />
+              </div>
+              <div className="messages">
+                <div className="message-wrapper right">
+                  <p>Lorem, ipsum.</p>
+                </div>
+                <div className="message-wrapper left">
+                  <p>Lorem, ipsum.</p>
+                </div>
+                <div className="message-wrapper right">
+                  <p>`Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, veritatis?`</p>
+                </div>
+              </div>
+              <div className="text-box">
+                <input type="text" placeholder="Type your message" name="" id="" />
+              </div>
+            </div>
+
             <div className="top-bar">
               <h3>Lecture - 3 </h3>
               <div className="exam-info">
@@ -119,7 +137,12 @@ class MeetingRoom extends Component {
                       <div className="control-wrapper">
                         <img src={hand} alt="" />
                       </div>
-                      <div className="control-wrapper">
+                      <div
+                        className="control-wrapper"
+                        onClick={() => {
+                          this.setState({ chatWindow: true });
+                        }}
+                      >
                         <img src={chat} alt="" />
                       </div>
                       <div className="control-wrapper">
