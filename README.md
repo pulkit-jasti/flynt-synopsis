@@ -19,13 +19,7 @@
 
 ## Motivation for the project:
 
-Due to the Coronavirus pandemic, many of us are working or studying at home. This applies to both college students and school students.
-    An efficient system is essential to ensuring quality and integrity in such a scenario. With the help of various parameters, we propose 
-    a system for monitoring the attentiveness of candidates and tracking their emotion levels during meetings/classes to determine a meta-score. 
-    Furthermore, our system reports students with less than the threshold meta-score.Moreover, our system notifies health counselors for 
-    one-on-one meetings of students with meta-scores less than thresholds. To make the job of health counselors easier, we also generate 
-    a custom report of the student by "Intelligent Chat Bot" that can analyze him. Hence, we are creating an eco system that binds together 
-    and helps to promote the mental health of students. 
+The past 2 years of the pandemic have had a very significant impact on our lives both in terms of our physical and mental well-being. Research states that the depression rates in students between ages 10-18 have increased by 72% since the pandemic has started. Therefore to fix this issue, we have created an AI-based online classroom system that monitors various parameters like facial expressions, voice, attentiveness of a student during the class and generates a meta score that gives an overall idea about the mental well-being of the student. Based on this score, the school counselors will be notified and then the student can have a one on one therapy session with the counselor. This system can help identify signs of depression at early stages which makes it significantly easy to help the student in a safe environment. 
 
 
 ## Tech stack and Modules used:
