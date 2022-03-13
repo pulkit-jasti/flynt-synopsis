@@ -60,7 +60,7 @@ class TherapistRoom extends Component {
           <div className="left">
             <div className="side-bar">
               <div>
-                <div className="logo">P.</div>
+                <div className="logo">F.</div>
                 <div className="icons-list">
                   <img src={home} alt="" />
                   <img src={cap} alt="" />

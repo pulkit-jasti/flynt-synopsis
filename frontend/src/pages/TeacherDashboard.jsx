@@ -7,7 +7,7 @@ import cap from "../assets/img/cap.png";
 import user from "../assets/img/user.png";
 import settings from "../assets/img/settings.png";
 import logout from "../assets/img/logout.png";
-import helmet from "../assets/img/helmet.png";
+import atom from "../assets/img/atom.png";
 import stopwatch from "../assets/img/stopwatch.png";
 import gintoki from "../assets/img/gintoki.png";
 import close from "../assets/img/close.png";
@@ -23,11 +23,11 @@ class TeacherDashboard extends Component {
     this.state = {
       reportModal: false,
       douChartData: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Angry", "Happy", "Sad", "Neutral", "Scared"],
         datasets: [
           {
             label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5, 2],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -49,11 +49,11 @@ class TeacherDashboard extends Component {
         ],
       },
       barChartData: {
-        labels: ["January", "February", "March", "April"],
+        labels: ["Head Movements", "Concentration", "Distracted", "Talking"],
         datasets: [
           {
             label: "Dataset 1",
-            data: [200, 300, 400, 500],
+            data: [15, 9, 20, 30],
             backgroundColor: "rgba(255, 99, 132, 0.5)",
           },
           // {
@@ -131,7 +131,7 @@ class TeacherDashboard extends Component {
           <div className="left">
             <div className="side-bar">
               <div>
-                <div className="logo">P.</div>
+                <div className="logo">F.</div>
                 <div className="icons-list">
                   <img src={home} alt="" />
                   <img src={cap} alt="" />
@@ -146,9 +146,9 @@ class TeacherDashboard extends Component {
           <div className="right">
             <div className="top-bar">
               <div className="exam-info">
-                <h3>Class Report - </h3>
-                <img src={helmet} alt="" />
-                <h3>History</h3>
+                <h3>Class Report </h3>
+                <img src={atom} alt="" />
+                <h3>Counselling</h3>
               </div>
             </div>
 

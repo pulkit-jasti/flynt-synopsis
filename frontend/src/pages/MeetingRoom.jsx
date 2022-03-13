@@ -69,7 +69,7 @@ class MeetingRoom extends Component {
           <div className="left">
             <div className="side-bar">
               <div>
-                <div className="logo">P.</div>
+                <div className="logo">F.</div>
                 <div className="icons-list">
                   <img src={home} alt="" />
                   <img src={cap} alt="" />
@@ -94,14 +94,22 @@ class MeetingRoom extends Component {
                 />
               </div>
               <div className="messages">
-                <div className="message-wrapper right">
-                  <p>Lorem, ipsum.</p>
-                </div>
-                <div className="message-wrapper left">
-                  <p>Lorem, ipsum.</p>
+                <div className="message-wrapper">
+                  <p>Hey, not feeling good ?</p>
                 </div>
                 <div className="message-wrapper right">
-                  <p>`Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, veritatis?`</p>
+                  <p>Yes</p>
+                </div>
+                <div className="message-wrapper">
+                  <p>
+                    What is bothering you the momst <br />
+                    a. Academics <br />
+                    b. Relationships <br />
+                    c. Exams
+                  </p>
+                </div>
+                <div className="message-wrapper right">
+                  <p>c</p>
                 </div>
               </div>
               <div className="text-box">

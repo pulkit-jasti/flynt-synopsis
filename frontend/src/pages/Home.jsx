@@ -15,7 +15,7 @@ import calendar from "../assets/img/calendar.png";
 import date from "../assets/img/date.png";
 import clock from "../assets/img/clock.png";
 import messages from "../assets/img/messages.png";
-import helmet from "../assets/img/helmet.png";
+import atom from "../assets/img/atom.png";
 import statis from "../assets/img/statis.png";
 import database from "../assets/img/database.png";
 
@@ -26,7 +26,7 @@ class Home extends Component {
         <div className="left">
           <div className="side-bar">
             <div>
-              <div className="logo">P.</div>
+              <div className="logo">F.</div>
               <div className="icons-list">
                 <img src={home} alt="" />
                 <img src={cap} alt="" />
@@ -47,8 +47,8 @@ class Home extends Component {
                 <div className="list">
                   <div className="exam-card card">
                     <div className="subject-name">
-                      <img src={helmet} alt="" />
-                      <p className="sub">History</p>
+                      <img src={atom} alt="" />
+                      <p className="sub">Physics</p>
                     </div>
 
                     <div className="stat">
