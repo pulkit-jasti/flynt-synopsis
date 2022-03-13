@@ -1,6 +1,3 @@
-from flask import Flask, render_template, Response
-from camera import VideoCamera
-import json
 
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
@@ -10,7 +7,9 @@ import tensorflow as tf
 from tensorflow import keras 
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+app = Flask(__name__)
 
+CORS(app)
 with open('interview1.json') as file:
     data = json.load(file)
 
@@ -62,29 +61,12 @@ training_labels_final = np.array(training_labels)
 EPOCHS = 500
 model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 history = model.fit(padded, training_labels_final, epochs=EPOCHS)
- 
-app = Flask(__name__)
 
-CORS(app)
-@app.route('/')
-def index():
-    return render_template('index.js')
-    
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-               
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen(VideoCamera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
-@app.route('/res')
-def res():
-    with open('sav.json') as json_file:
-            data = json.load(json_file)
-            return data
+
+
+
+
+
 @app.route("/<inp>", methods = ["GET"])
 @cross_origin()
 def output(inp):
@@ -96,5 +78,9 @@ def output(inp):
         if i['tag']==category:
             return np.random.choice(i['responses'])
 
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, threaded=True, use_reloader=False)
+	app.run(debug=True)
+
+
