@@ -1,5 +1,60 @@
-.student-data-modal {
-  background-color: lightblue;
+.student-report-modal {
+  .modal-content {
+    border: none;
+    border-radius: 20px;
+
+    .modal-body {
+      padding: 20px;
+      position: relative;
+
+      & > img {
+        position: absolute;
+        top: 20px;
+        right: 23px;
+        height: 13px;
+        opacity: 0.3;
+        cursor: pointer;
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+
+      .chart-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .chart-wrapper {
+          h4 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            text-align: center;
+          }
+        }
+
+        .chart-wrapper:first-child {
+          // background-color: lightcoral;
+          width: 200px;
+        }
+      }
+
+      .btn-wrapper {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+
+        & > button {
+          background-color: rgb(224, 224, 224);
+          color: #000;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
 }
 
 .teacher-dashboard {

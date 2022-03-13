@@ -10,23 +10,59 @@ import logout from "../assets/img/logout.png";
 import helmet from "../assets/img/helmet.png";
 import stopwatch from "../assets/img/stopwatch.png";
 import gintoki from "../assets/img/gintoki.png";
+import close from "../assets/img/close.png";
 
-// MEETING CONTROL IMAGES
-import mic from "../assets/img/meeting-controls/mic.png";
-import cameraOn from "../assets/img/meeting-controls/cameraOn.png";
-import hand from "../assets/img/meeting-controls/hand.png";
-import chat from "../assets/img/meeting-controls/chat.png";
-import expand from "../assets/img/meeting-controls/expand.png";
-import exit from "../assets/img/meeting-controls/exit.png";
-import screenShare from "../assets/img/meeting-controls/screenShare.png";
-
-import daoko from "../assets/daoko.mp4";
+import { Chart as ChartJS, ArcElement, Tooltip, CategoryScale, LinearScale, BarElement } from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
+// import faker from "faker";
+ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, BarElement);
 
 class TeacherDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cameraModal: false,
+      reportModal: false,
+      douChartData: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [
+          {
+            label: "# of Votes",
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      barChartData: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Dataset 1",
+            data: [200, 300, 400, 500],
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+          // {
+          //   label: 'Dataset 2',
+          //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+          //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
+          // },
+        ],
+      },
       studentList: [
         { firstName: "Anakin", lastName: "Skywalker" },
         { firstName: "Obi Wan", lastName: "Kenobi" },
@@ -42,12 +78,11 @@ class TeacherDashboard extends Component {
       ],
     };
 
-    this.toggleCameraModal = this.toggleCameraModal.bind(this);
+    this.toggleReportModal = this.toggleReportModal.bind(this);
   }
 
-  toggleCameraModal() {
-    this.setState((prevState) => ({ cameraModal: !prevState.cameraModal }));
-    console.log("log test", this.state.cameraModal);
+  toggleReportModal() {
+    this.setState((prevState) => ({ reportModal: !prevState.reportModal }));
   }
 
   render() {
@@ -57,12 +92,39 @@ class TeacherDashboard extends Component {
           <Modal
             centered
             size="lg"
-            className="student-data-modal"
-            toggle={this.toggleCameraModal}
-            isOpen={this.state.cameraModal}
+            className="student-report-modal"
+            toggle={this.toggleReportModal}
+            isOpen={this.state.reportModal}
           >
             <ModalBody>
-              <img src={gintoki} alt="" />
+              {/* <img src={gintoki} alt="" /> */}
+              <img src={close} alt="" onClick={this.toggleReportModal} />
+              <h3>Student Report</h3>
+              <div className="chart-container">
+                <div className="chart-wrapper">
+                  <Doughnut
+                    data={this.state.douChartData}
+                    options={{
+                      legend: { display: false },
+                      tooltips: {
+                        enabled: false,
+                      },
+                    }}
+                  />
+                  <h4>Emotions Summary</h4>
+                </div>
+
+                <div className="chart-wrapper">
+                  <Bar data={this.state.barChartData} />
+                  <h4>Events Summary</h4>
+                </div>
+              </div>
+              <div className="btn-wrapper">
+                <button>View Questionaire</button>
+                <Link to="/therapist-dashboard">
+                  <button>Schedule Call</button>
+                </Link>
+              </div>
             </ModalBody>
           </Modal>
 
@@ -109,7 +171,7 @@ class TeacherDashboard extends Component {
                       </div>
                     </div>
 
-                    <button>View Details</button>
+                    <button onClick={this.toggleReportModal}>View Details</button>
                   </div>
                 );
               })}
