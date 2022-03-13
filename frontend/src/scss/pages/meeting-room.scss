@@ -228,11 +228,20 @@
           padding: 25px;
           position: relative;
           // padding: 25px !important;
+          // display: flex;
+          // justify-content: center;
 
           video {
             width: 100%;
             min-height: 100% !important;
             border-radius: 12px;
+          }
+
+          & > img {
+            height: 100%;
+            width: fit-content;
+            border-radius: 12px;
+            // margin: 0 120px;
           }
 
           .controls-trigger {
@@ -321,11 +330,6 @@
           .student-wrapper {
             display: flex;
             align-items: center;
-
-            // padding: 5px;
-            // border-radius: 11px;
-            // background-color: #f8f8f8;
-
             padding: 9px 0 8px 10px;
             border-bottom: 1px solid rgba(161, 161, 161, 0.1);
 

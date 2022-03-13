@@ -7,7 +7,7 @@ import cap from "../assets/img/cap.png";
 import user from "../assets/img/user.png";
 import settings from "../assets/img/settings.png";
 import logout from "../assets/img/logout.png";
-import helmet from "../assets/img/helmet.png";
+import atom from "../assets/img/atom.png";
 import stopwatch from "../assets/img/stopwatch.png";
 import gintoki from "../assets/img/gintoki.png";
 import closeWhite from "../assets/img/closeWhite.png";
@@ -63,7 +63,7 @@ class MeetingRoom extends Component {
             isOpen={this.state.cameraModal}
           >
             <ModalBody>
-              <img src={gintoki} alt="" />
+              <img src="http://192.168.10.150:5000/video_feed" alt="" />
             </ModalBody>
           </Modal>
           <div className="left">
@@ -112,8 +112,8 @@ class MeetingRoom extends Component {
             <div className="top-bar">
               <h3>Lecture - 3 </h3>
               <div className="exam-info">
-                <img src={helmet} alt="" />
-                <h3>History</h3>
+                <img src={atom} alt="" />
+                <h3>Physics</h3>
               </div>
               <div className="time-left">
                 <img src={stopwatch} alt="" />
@@ -124,7 +124,11 @@ class MeetingRoom extends Component {
             <div className="bottom-container">
               <div className="left">
                 <div className="meeting-window card">
-                  <video src={daoko}></video>
+                  {/* <video src={daoko}></video> */}
+                  <img
+                    src="https://www.slideteam.net/media/catalog/product/cache/1280x720/p/r/projectile_motion_parabolic_with_basket_ball_slide01.jpg"
+                    alt=""
+                  />
 
                   <div className="controls-trigger">
                     <div className="controls-box">

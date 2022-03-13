@@ -350,7 +350,7 @@ class VideoCamera(object):
         if ret == True:
             faces = find_faces(img, face_model)
             if len(faces)==0:
-                cv2.putText(img, "Please return to test", (30, 30), font,
+                cv2.putText(img, "Please Focus on the class", (30, 30), font,
                         1, (0, 255, 255), 2)
                 O = O + 1
                 if O >= 10:

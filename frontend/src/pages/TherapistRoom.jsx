@@ -110,7 +110,11 @@ class TherapistRoom extends Component {
             <div className="bottom-container">
               <div className="left">
                 <div className="meeting-window card">
-                  <video src={daoko}></video>
+                  {/* <video src={daoko}></video> */}
+                  <img
+                    src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F23%2F2018%2F08%2F22%2Ffind-therapist-1.jpg&q=60"
+                    alt=""
+                  />
 
                   <div className="controls-trigger">
                     <div className="controls-box">
